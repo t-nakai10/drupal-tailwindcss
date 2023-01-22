@@ -1,12 +1,12 @@
 ## このリポジトリについて
 
-Drupal で TailwindCSS を用いた開発ができます。
+Drupal で TailwindCSS を用いたテーマ開発ができます。
 
 ## 初期設定
 
 ```bash
-git clone https://github.com/t-nakai10/Drupal-TailwindCSS.git
-cd Drupal-TailwindCSS
+git clone https://github.com/t-nakai10/drupal-tailwindcss.git
+cd drupal-tailwindcss
 
 # DDEV 立ち上げ.
 ddev start
@@ -22,7 +22,7 @@ ddev composer install
 
 - `example.settings.local.php` を app > sites > default 下に `settings.local.php` にリネームして配置してください。
 - Twig のキャッシュは app > sites > development.services.yml に設定を直接記入し、無効化済みです。
-  - 詳しくは https://www.studio-umi.jp/blog/6/345 等を参考ください。
+  - 詳しくは https://www.studio-umi.jp/blog/6/345 等をご参考ください。
 
 ## gulp の設定
 
@@ -37,6 +37,10 @@ ddev exec gulp
 - gulp のプロキシサーバーは https://drupal-project.ddev.site:3000/ になります。
 
 ## 主に使用するコマンド
+- キャッシュクリア
+```bash
+ddev drush cr
+```
 
 - DDEV を実行
 
