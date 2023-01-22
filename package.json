@@ -1,0 +1,23 @@
+{
+    "name": "studio-umi-drupal-project",
+    "version": "1.0.0",
+    "description": "Gulp.js を使ってカスタムモジュール・テーマの開発タスクを自動実行します。",
+    "main": "gulpfile.js",
+    "license": "GPL-2.0",
+    "private": true,
+    "devDependencies": {
+        "autoprefixer": "^10.4.13",
+        "browser-sync": "^2.26.13",
+        "config": "^3.3.3",
+        "gulp": "^4.0.2",
+        "gulp-postcss": "^9.0.1",
+        "gulp-rename": "^2.0.0",
+        "postcss": "^8.4.20",
+        "tailwindcss": "^3.2.4"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
+    }
+}

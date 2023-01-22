@@ -1,0 +1,28 @@
+##
+# @file
+# stylelint configuration.
+#
+# @see https://stylelint.io/user-guide/configure
+
+# Extends Drupal default stylelint settings.
+extends:
+  - stylelint-config-standard-scss
+  - stylelint-config-drupal
+
+rules:
+  at-rule-empty-line-before:
+    - always
+    - ignore:
+      - after-comment
+      - blockless-after-same-name-blockless
+      - first-nested
+      - inside-block
+  # scss/at-rule-no-unknown を利用するため無効化
+  at-rule-no-unknown: null
+  comment-empty-line-before: always
+  font-family-no-missing-generic-family-keyword:
+    - true
+    - ignoreFontFamilies: ["Material Icons", "FontAwesome"]
+  max-nesting-depth: 3
+  unit-allowed-list: ["ch", "deg", "dppx", "em", "ex", "fr", "ms", "rem", "%", "s", "px", "vw", "vh"]
+  scss/double-slash-comment-empty-line-before: null

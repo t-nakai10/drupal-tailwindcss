@@ -1,0 +1,22 @@
+name: tw
+type: theme
+'base theme': stable9
+starterkit: true
+version: VERSION
+libraries:
+  - tw/base
+  - tw/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - tw/user
+  core/drupal.dropbutton:
+    - tw/dropbutton
+  core/drupal.dialog:
+    - tw/dialog
+  file/drupal.file:
+    - tw/file
+  core/drupal.progress:
+    - tw/progress
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.0.0'

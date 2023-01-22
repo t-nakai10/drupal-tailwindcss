@@ -1,0 +1,11 @@
+@tailwind base;
+
+a {
+  @apply text-red-900 font-bold
+}
+.menu-item a {
+  @apply text-red-50 bg-red-400
+}
+.style-scope.ytd-logo {
+  display: none!important;
+}

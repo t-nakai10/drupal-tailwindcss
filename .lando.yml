@@ -1,0 +1,42 @@
+name: d10
+recipe: drupal10
+config:
+  webroot: web
+  php: 8.1
+  via: nginx
+  database: mysql:5.7
+tooling:
+  node:
+    service: node
+  yarn:
+    service: node
+  npx:
+    service: node
+  gulp:
+    service: node
+    cmd: npx gulp
+proxy:
+  phpmyadmin:
+    - pma.lndo.site
+  mailhog:
+    - mailhog.lndo.site
+  node:
+    - bs.myproject.lndo.site:3000
+services:
+  appserver:
+    build:
+      - composer install
+    build_as_root:
+      - pecl install uploadprogress
+      - docker-php-ext-enable uploadprogress
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  node:
+    type: node:16
+    ssl: true
