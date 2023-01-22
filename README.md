@@ -1,40 +1,55 @@
 ## このリポジトリについて
 
-Drupal で TailwindCSS を用いたテーマ開発ができます。
+Drupal で TailwindCSS を用いたテーマ開発が行えます。
 
-## 初期設定
-
+## Drupal 構築
+1. ローカルにリポジトリのクローンを作成
 ```bash
 git clone https://github.com/t-nakai10/drupal-tailwindcss.git
 cd drupal-tailwindcss
-
-# DDEV 立ち上げ.
+```
+2. DDEV 起動
+```bash
 ddev start
-
-# Drupalのファイル群をインストール.
+```
+3. パッケージをインストール
+```bash
 ddev composer install
 ```
-
-- https://drupal-project.ddev.site に遷移し Drupal をインストールします。
-- Drupal のインストールが終われば、テーマから `tw` テーマを有効化してください。
-
-## キャッシュの無効化
-
-- `example.settings.local.php` を app > sites > default 下に `settings.local.php` にリネームして配置してください。
-- Twig のキャッシュは app > sites > development.services.yml に設定を直接記入し、無効化済みです。
-  - 詳しくは https://www.studio-umi.jp/blog/6/345 等をご参考ください。
+4. https://drupal-project.ddev.site に遷移し Drupal をインストールします。
+5. Drupal のインストールが終われば、テーマから `tw` テーマを有効化してください。
 
 ## gulp の設定
-
+1. パッケージをインストール
 ```bash
-# ファイル群のインストール.
 ddev exec yarn
-
-# gulp 実行.
+```
+2. gulp 実行.
+```bash
 ddev exec gulp
 ```
 
-- gulp のプロキシサーバーは https://drupal-project.ddev.site:3000/ になります。
+- プロキシのURLは https://drupal-project.ddev.site:3000/ になります。
+
+## キャッシュの無効化
+
+### settings.local.php
+- `app/sites/example.settings.local.php` を `app/sites/default/settings.local.php` にリネーム
+- `$settings['cache']['bins']...` のすべてのコメントアウトを解除
+
+### services.local.yml
+
+- `app/sites/default/default.services.yml` を `app/sites/default/services.local.yml` にリネーム
+- 以下のように編集してください。
+```yml
+# parametaers > twig.confg の各設定を変更
+parameters:
+  twig.config:
+    debug: true
+    auto_reload: true
+    cache: false
+```
+- 詳しくは https://www.studio-umi.jp/blog/6/345 が参考になると思います。
 
 ## 主に使用するコマンド
 - キャッシュクリア
@@ -59,7 +74,7 @@ ddev exec gulp
   - drupal paranoia を使用しているため必要に応じて下記コマンドを実行してください。
 
 ```bash
-composer drupal:paranoia
+ddev composer drupal:paranoia
 ```
 
 ## 補足
