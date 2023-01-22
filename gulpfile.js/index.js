@@ -18,9 +18,11 @@ function browsersyncStart(cb) {
   browsersync.create();
   browsersync.init({
     server: false,
-    proxy: {
-      target: 'localhost',
-    },
+    // 未ログイン.
+    // proxy: {
+    //   target: 'localhost',
+    // },
+    proxy: host,
     host: host,
   });
   cb();
